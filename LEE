@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はりきゅう院LEE｜高田馬場 鍼灸院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Color System ── */
+  :root {
+    --brand-deep:    #1a2e25;
+    --brand-mid:     #2d4f3c;
+    --brand-light:   #e8f0eb;
+    --action:        #b85c28;
+    --action-hover:  #9b4a1e;
+    --action-sub:    #f4ede7;
+    --state-ok:      #5a8a6a;
+    --state-note:    #c8984a;
+    --text-primary:  #1a1a1a;
+    --text-secondary:#4a4a4a;
+    --text-muted:    #888;
+    --border:        #ddd;
+    --bg-off:        #f9f7f4;
+    --white:         #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-primary);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── Sticky CTA Bar ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    background: var(--brand-deep);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 20px rgba(0,0,0,0.2);
+  }
+  .sticky-cta .btn-main {
+    flex: 1; max-width: 280px;
+    background: var(--action);
+    color: var(--white);
+    border: none;
+    padding: 14px 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px; font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: background 0.2s;
+  }
+  .sticky-cta .btn-main:hover { background: var(--action-hover); }
+  .sticky-cta .btn-sub {
+    flex: 1; max-width: 200px;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 14px 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: background 0.2s;
+  }
+  .sticky-cta .btn-sub:hover { background: rgba(255,255,255,0.1); }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--brand-deep);
+    color: var(--white);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 24px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.03) 100%);
+    pointer-events: none;
+  }
+  .hero-line {
+    position: absolute;
+    top: 0; right: 30%;
+    width: 1px; height: 100%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    margin-bottom: 32px;
+  }
+  .hero-catch {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: 48px;
+    max-width: 480px;
+  }
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+  }
+  .btn-hero-main {
+    display: block;
+    background: var(--action);
+    color: var(--white);
+    text-decoration: none;
+    padding: 18px 28px;
+    font-size: 16px; font-weight: 500;
+    letter-spacing: 0.06em;
+    text-align: center;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-hero-main:hover { background: var(--action-hover); transform: translateY(-1px); }
+  .btn-hero-main small {
+    display: block;
+    font-size: 11px; font-weight: 300;
+    opacity: 0.85; margin-top: 4px;
+    letter-spacing: 0.08em;
+  }
+  .btn-hero-sub {
+    display: block;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 14px; letter-spacing: 0.06em;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .btn-hero-sub:hover { background: rgba(255,255,255,0.08); }
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 11px; letter-spacing: 0.1em;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.25);
+    animation: scrollLine 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── Section Common ── */
+  section { padding: 72px 24px; }
+  .section-inner { max-width: 720px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 0.18em;
+    color: var(--state-ok); text-transform: uppercase;
+    margin-bottom: 12px; font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600; line-height: 1.5;
+    color: var(--brand-deep);
+    margin-bottom: 32px; letter-spacing: 0.03em;
+  }
+
+  /* ── Pain Section ── */
+  .pain-section { background: var(--bg-off); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .pain-item {
+    background: var(--white);
+    padding: 18px 20px;
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 14px; color: var(--text-secondary); line-height: 1.5;
+  }
+  .pain-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--state-note);
+    flex-shrink: 0; margin-top: 7px;
+  }
+  .pain-note {
+    background: var(--action-sub);
+    border-left: 3px solid var(--action);
+    padding: 16px 20px;
+    font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+  }
+
+  /* ── Feature Section ── */
+  .feature-section { background: var(--white); }
+  .feature-list {
+    display: flex; flex-direction: column; gap: 0;
+    border: 1px solid var(--border);
+  }
+  .feature-item {
+    display: grid; grid-template-columns: 56px 1fr;
+    gap: 20px; padding: 28px 24px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+    transition: background 0.15s;
+  }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-item:hover { background: var(--brand-light); }
+  .feature-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px; font-weight: 300;
+    color: var(--brand-mid); opacity: 0.5;
+    line-height: 1; padding-top: 4px;
+  }
+  .feature-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--brand-deep); margin-bottom: 8px; line-height: 1.4;
+  }
+  .feature-body { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+
+  /* ── Reviews Section ── */
+  .review-section { background: var(--brand-light); }
+  .review-list { display: flex; flex-direction: column; gap: 20px; }
+  .review-card {
+    background: var(--white);
+    padding: 24px;
+    border-left: 4px solid var(--state-ok);
+  }
+  .review-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .review-stars { color: var(--state-note); font-size: 14px; letter-spacing: 2px; }
+  .review-meta { font-size: 12px; color: var(--text-muted); }
+  .review-text { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+
+  /* ── Concern Tags ── */
+  .divider { width: 40px; height: 2px; background: var(--state-ok); margin-bottom: 24px; }
+  .concern-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px; color: var(--brand-deep); margin-bottom: 20px; font-weight: 600;
+  }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--brand-light);
+    color: var(--brand-mid);
+    border: 1px solid #c5d9cc;
+    padding: 7px 14px; font-size: 13px; letter-spacing: 0.03em;
+  }
+
+  /* ── Association ── */
+  .assoc-section {
+    background: var(--brand-deep);
+    color: var(--white);
+    padding: 48px 24px;
+  }
+  .assoc-inner {
+    max-width: 720px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .assoc-label {
+    font-size: 11px; letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .assoc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .assoc-list li {
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .assoc-list li::before {
+    content: ''; width: 16px; height: 1px;
+    background: var(--state-ok); flex-shrink: 0;
+  }
+
+  /* ── CTA Section ── */
+  .cta-section {
+    background: var(--action-sub);
+    border-top: 1px solid #e4cfc2;
+    padding: 72px 24px 100px;
+  }
+  .cta-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+  .cta-lead {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 600; color: var(--brand-deep);
+    margin-bottom: 12px; line-height: 1.5;
+  }
+  .cta-sub { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
+  .cta-note {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--state-note);
+    margin-bottom: 32px; padding: 8px 16px;
+    background: var(--white); border: 1px solid #e8d4b8;
+  }
+  .cta-buttons { display: flex; flex-direction: column; gap: 12px; }
+  .btn-cta-main {
+    display: block; background: var(--action);
+    color: var(--white); text-decoration: none;
+    padding: 20px 32px; font-size: 16px; font-weight: 500;
+    letter-spacing: 0.06em; text-align: center;
+    transition: background 0.2s;
+  }
+  .btn-cta-main:hover { background: var(--action-hover); }
+  .btn-cta-main small {
+    display: block; font-size: 11px; font-weight: 300;
+    opacity: 0.8; margin-top: 4px; letter-spacing: 0.08em;
+  }
+  .btn-cta-sub {
+    display: block; background: var(--white);
+    color: var(--brand-deep); text-decoration: none;
+    padding: 16px 32px; font-size: 14px; font-weight: 500;
+    letter-spacing: 0.06em; text-align: center;
+    border: 1px solid #b0c4b5; transition: background 0.2s;
+  }
+  .btn-cta-sub:hover { background: var(--brand-light); }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--brand-deep);
+    color: rgba(255,255,255,0.5);
+    text-align: center; padding: 32px 24px;
+    font-size: 12px; letter-spacing: 0.05em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .hero-cta-group { max-width: 100%; }
+    .sticky-cta { flex-direction: column; }
+    .sticky-cta .btn-main,
+    .sticky-cta .btn-sub { max-width: 100%; }
+  }
+
+  /* ── Fade in ── */
+  .fade-up {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Sticky Bottom CTA -->
+<div class="sticky-cta">
+  <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38416?menuid=72395" class="btn-main" target="_blank" rel="noopener">
+    ✦ 初回メニューを予約する
+  </a>
+  <a href="https://www.shinq-compass.jp/salon/reserve/38416" class="btn-sub" target="_blank" rel="noopener">
+    全メニューを見る
+  </a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">高田馬場駅 ／ はりきゅう院LEE</div>
+    <h1 class="hero-catch">
+      その不調、<br>「慣れ」ではなく<br>「治る」を目指す。
+    </h1>
+    <p class="hero-sub">
+      自律神経・慢性痛・睡眠のお悩みに。<br>
+      国家資格を持つ鍼灸師が、根本から向き合います。
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38416?menuid=72395" class="btn-hero-main" target="_blank" rel="noopener">
+        初回メニューを予約する
+        <small>カレンダーから空き日時をすぐ確認</small>
+      </a>
+      <a href="https://www.shinq-compass.jp/salon/reserve/38416" class="btn-hero-sub" target="_blank" rel="noopener">
+        全メニュー・料金を見る →
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- Pain Points -->
+<section class="pain-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <p class="section-label">こんなお悩みはありませんか</p>
+      <h2 class="section-title">もしかして、<br>諦めていませんか？</h2>
+    </div>
+    <div class="pain-grid fade-up">
+      <div class="pain-item"><span class="pain-dot"></span>四十肩・五十肩が何年も治らない</div>
+      <div class="pain-item"><span class="pain-dot"></span>ぎっくり腰を繰り返している</div>
+      <div class="pain-item"><span class="pain-dot"></span>慢性的な肩こり・腰痛が当たり前</div>
+      <div class="pain-item"><span class="pain-dot"></span>自律神経の乱れによる不調が続く</div>
+      <div class="pain-item"><span class="pain-dot"></span>眼精疲労・頭の重さが抜けない</div>
+      <div class="pain-item"><span class="pain-dot"></span>マッサージに行ってもすぐ戻る</div>
+    </div>
+    <div class="pain-note fade-up">
+      ひとつでも当てはまるなら、身体の「使い方」と「回復力」に原因があるかもしれません。
+      表面だけをほぐすのではなく、根本からアプローチする鍼灸が有効です。
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="feature-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <p class="section-label">LEEが選ばれる理由</p>
+      <h2 class="section-title">ここで変わる、3つの理由</h2>
+    </div>
+    <div class="feature-list">
+      <div class="feature-item fade-up">
+        <div class="feature-num">01</div>
+        <div>
+          <div class="feature-title">プロを担当してきた技術力</div>
+          <p class="feature-body">スポーツ選手・パフォーマーなど、高いパフォーマンスを求めるプロへの施術経験を積んできた鍼灸師が担当。症状の表面ではなく、身体全体のバランスを見立てて施術します。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-up">
+        <div class="feature-num">02</div>
+        <div>
+          <div class="feature-title">自律神経系への専門的アプローチ</div>
+          <p class="feature-body">不眠・頭痛・倦怠感など、西洋医学では原因が特定しにくい症状にも対応。鍼灸による自律神経への働きかけで、身体本来の回復力を引き出します。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-up">
+        <div class="feature-num">03</div>
+        <div>
+          <div class="feature-title">根拠のある施術計画</div>
+          <p class="feature-body">初回に丁寧にカウンセリングを行い、現状と目標を共有します。「なんとなく楽になった」で終わらせず、改善の見通しを持って通えるよう伴走します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="review-section">
+  <div class="section-inner">
+    <div class="fade-up">
+      <p class="section-label">患者さまの声</p>
+      <h2 class="section-title">実際に通った方の声</h2>
+    </div>
+    <div class="review-list">
+      <div class="review-card fade-up">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-meta">男性 30代｜2026.03</span>
+        </div>
+        <p class="review-text">
+          「長年悩んでいた不眠症をどうにかしたくて紹介してもらいました。施術を数回受けた後から、自分でもびっくりするくらい眠れるようになりました。非常に安心感があって信頼できる先生に出会えてよかったです。」
+        </p>
+      </div>
+      <div class="review-card fade-up">
+        <div class="review-header">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-meta">女性 30代｜2026.03</span>
+        </div>
+        <p class="review-text">
+          「肩があがらなくなった時に知人に紹介してもらいました。一回治療してもらっただけでほとんど肩が治ったのでそこから通っています。綺麗なお店で先生の人柄も良いのでおすすめです。」
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Concern Tags -->
+<section style="padding: 56px 24px; background: var(--white);">
+  <div class="section-inner fade-up">
+    <div class="divider"></div>
+    <p class="concern-title">対応しているお悩み</p>
+    <div class="tag-cloud">
+      <span class="tag">頭痛・偏頭痛</span>
+      <span class="tag">睡眠の質</span>
+      <span class="tag">四十肩・五十肩</span>
+      <span class="tag">首こり</span>
+      <span class="tag">生理痛</span>
+      <span class="tag">目の疲れ</span>
+      <span class="tag">顎関節症</span>
+      <span class="tag">逆流性食道炎</span>
+      <span class="tag">自律神経失調症</span>
+      <span class="tag">うつ・気分の落ち込み</span>
+      <span class="tag">腰痛・ぎっくり腰</span>
+      <span class="tag">肩こり</span>
+    </div>
+  </div>
+</section>
+
+<!-- Association -->
+<div class="assoc-section">
+  <div class="assoc-inner fade-up">
+    <p class="assoc-label">加盟業界団体</p>
+    <ul class="assoc-list">
+      <li>公益社団法人 全日本鍼灸マッサージ師会</li>
+      <li>公益社団法人 日本鍼灸師会</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="fade-up">
+      <h2 class="cta-lead">まず、一度来てみてください。</h2>
+      <p class="cta-sub">
+        初回はカウンセリングの時間を丁寧に取ります。<br>
+        「鍼は初めて」という方も安心してご来院ください。
+      </p>
+      <div class="cta-note">
+        ⚠ 初回限定メニューは枠に限りがあります
+      </div>
+      <div class="cta-buttons">
+        <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38416?menuid=72395" class="btn-cta-main" target="_blank" rel="noopener">
+          初回メニューを予約する（カレンダー直通）
+          <small>空き状況をリアルタイムで確認できます</small>
+        </a>
+        <a href="https://www.shinq-compass.jp/salon/reserve/38416" class="btn-cta-sub" target="_blank" rel="noopener">
+          全メニューから予約する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>はりきゅう院LEE ｜ 高田馬場駅</p>
+  <p style="margin-top:6px;">© 2026 はりきゅう院LEE</p>
+</footer>
+
+<script>
+  const targets = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
