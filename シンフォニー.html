@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シンフォニー鍼灸院｜川越・女性専用の完全プライベート鍼灸院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F0;
+    --warm-white: #FDFAF6;
+    --sage: #8A9B7F;
+    --sage-light: #B8C9AE;
+    --sage-dark: #5A7050;
+    --dusty-rose: #C8A090;
+    --dusty-rose-light: #E8D5CC;
+    --gold: #B8975A;
+    --gold-light: #D4B87A;
+    --charcoal: #2C2C2A;
+    --warm-gray: #6B6560;
+    --light-gray: #E8E4DF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2B3226 0%, #3D4A35 40%, #4A5A3D 70%, #3A3028 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(184,151,90,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(200,160,144,0.12) 0%, transparent 60%);
+  }
+
+  .hero-noise {
+    position: absolute; inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  /* Decorative botanical SVG circles */
+  .hero-deco {
+    position: absolute;
+    top: 8%; right: 6%;
+    width: 320px; height: 320px;
+    opacity: 0.12;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-deco-2 {
+    position: absolute;
+    bottom: 10%; left: 4%;
+    width: 200px; height: 200px;
+    opacity: 0.08;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 720px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.35em;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    color: #FAF6F0;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-title span {
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(250,246,240,0.75);
+    letter-spacing: 0.08em;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-cta {
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #2C2C2A;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    padding: 18px 48px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px rgba(184,151,90,0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(184,151,90,0.5);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(250,246,240,0.4);
+    color: rgba(250,246,240,0.85);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+    padding: 14px 36px;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-left: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: rgba(250,246,240,0.1);
+    border-color: rgba(250,246,240,0.7);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0.5;
+    animation: fadeUp 1s ease 1.5s forwards;
+    color: #FAF6F0;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+  }
+
+  .scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, transparent, rgba(250,246,240,0.6));
+    animation: scrollLine 2s ease infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 24px; }
+
+  .container { max-width: 1060px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.4em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .section-text {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    font-size: 0.97rem;
+    color: var(--warm-gray);
+    line-height: 2;
+    max-width: 560px;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain {
+    background: var(--warm-white);
+  }
+
+  .pain-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .pain-visual {
+    position: relative;
+  }
+
+  .pain-card {
+    background: var(--cream);
+    border-left: 3px solid var(--dusty-rose);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    border-radius: 0 4px 4px 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.93rem;
+    color: var(--charcoal);
+    font-weight: 400;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+
+  .pain-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .pain-card::before {
+    content: '✓';
+    color: var(--dusty-rose);
+    margin-right: 12px;
+    font-weight: 700;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    background: #2B3226;
+    color: var(--cream);
+  }
+
+  .features .section-label { color: var(--gold-light); }
+  .features .section-heading { color: var(--cream); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .feature-card {
+    padding: 40px 32px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: rgba(255,255,255,0.07);
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--dusty-rose) 100%);
+  }
+
+  .feature-num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 3.5rem;
+    color: rgba(184,151,90,0.15);
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .feature-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .feature-desc {
+    font-weight: 300;
+    font-size: 0.88rem;
+    color: rgba(250,246,240,0.65);
+    line-height: 1.9;
+  }
+
+  /* ── MENU ── */
+  .menu { background: var(--cream); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .menu-card {
+    background: var(--warm-white);
+    border: 1px solid var(--light-gray);
+    padding: 36px 32px;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  }
+
+  .menu-badge {
+    position: absolute;
+    top: -1px; right: 28px;
+    background: var(--dusty-rose);
+    color: white;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    font-weight: 400;
+  }
+
+  .menu-badge.gold { background: var(--gold); }
+
+  .menu-time {
+    font-size: 0.78rem;
+    color: var(--sage);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .menu-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .menu-price {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+
+  .menu-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--warm-gray);
+    margin-left: 4px;
+  }
+
+  .menu-desc {
+    font-size: 0.86rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    line-height: 1.9;
+    border-top: 1px solid var(--light-gray);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  /* ── STORY ── */
+  .story {
+    background: var(--warm-white);
+    overflow: hidden;
+  }
+
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .story-quote {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.9;
+    padding: 36px;
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .story-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+
+  .story-role {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--sage);
+    margin-bottom: 24px;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    background: #2B3226;
+    color: var(--cream);
+  }
+
+  .reviews .section-label { color: var(--gold-light); }
+  .reviews .section-heading { color: var(--cream); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .review-card {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 2px;
+  }
+
+  .review-stars {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.1em;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(250,246,240,0.8);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .review-meta {
+    font-size: 0.76rem;
+    color: rgba(250,246,240,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ACCESS ── */
+  .access { background: var(--cream); }
+
+  .access-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .info-table tr {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .info-table td {
+    padding: 16px 0;
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+
+  .info-table td:first-child {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--sage-dark);
+    white-space: nowrap;
+    padding-right: 24px;
+    width: 110px;
+    font-size: 0.82rem;
+  }
+
+  .info-table td:last-child {
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.8;
+  }
+
+  .map-placeholder {
+    background: var(--light-gray);
+    border-radius: 2px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 300;
+    color: var(--warm-gray);
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-inner {
+    width: 100%; height: 100%;
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--dusty-rose) 0%, #B8785A 50%, var(--gold) 100%);
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .cta-banner h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .cta-banner p {
+    color: rgba(255,255,255,0.85);
+    font-weight: 300;
+    font-size: 0.95rem;
+    margin-bottom: 48px;
+    line-height: 1.9;
+  }
+
+  .btn-white {
+    display: inline-block;
+    background: white;
+    color: var(--charcoal);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    padding: 20px 56px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.3);
+  }
+
+  .price-highlight {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 12px 28px;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    border-radius: 1px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(250,246,240,0.5);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+
+  footer strong {
+    color: rgba(250,246,240,0.8);
+    font-weight: 400;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    padding: 12px 0;
+    color: var(--sage-light);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── HEADER ── */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s ease;
+  }
+
+  .site-header.scrolled {
+    background: rgba(43,50,38,0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+
+  .logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.15rem;
+    color: white;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+  }
+
+  .header-nav {
+    display: flex; gap: 32px; list-style: none;
+  }
+
+  .header-nav a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .header-nav a:hover { color: var(--gold-light); }
+
+  .header-reserve {
+    background: var(--gold);
+    color: #2C2C2A !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-weight: 400 !important;
+    font-size: 0.8rem !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .header-reserve:hover {
+    background: var(--gold-light) !important;
+    color: #2C2C2A !important;
+  }
+
+  /* ── BADGE NEW ── */
+  .menu-card.featured {
+    border-color: var(--gold);
+    border-width: 1.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pain-inner, .story-inner, .access-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .features-grid, .menu-grid, .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-cta { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .btn-outline { margin-left: 0; }
+    .site-header { padding: 16px 20px; }
+    .header-nav { display: none; }
+    section { padding: 72px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <a href="#" class="logo">シンフォニー鍼灸院</a>
+  <nav>
+    <ul class="header-nav">
+      <li><a href="#features">当院の特徴</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#reviews">口コミ</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38275" class="header-reserve">ご予約</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  
+  <!-- Decorative circles -->
+  <svg class="hero-deco" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="160" cy="160" r="155" stroke="#B8975A" stroke-width="0.5"/>
+    <circle cx="160" cy="160" r="130" stroke="#B8975A" stroke-width="0.3"/>
+    <circle cx="160" cy="160" r="105" stroke="#C8A090" stroke-width="0.5"/>
+    <line x1="0" y1="160" x2="320" y2="160" stroke="#B8975A" stroke-width="0.3"/>
+    <line x1="160" y1="0" x2="160" y2="320" stroke="#B8975A" stroke-width="0.3"/>
+    <circle cx="160" cy="5" r="3" fill="#B8975A"/>
+    <circle cx="160" cy="315" r="3" fill="#B8975A"/>
+    <circle cx="5" cy="160" r="3" fill="#B8975A"/>
+    <circle cx="315" cy="160" r="3" fill="#B8975A"/>
+    <!-- Botanical leaf shapes -->
+    <path d="M160 60 Q200 100 160 140 Q120 100 160 60Z" stroke="#B8975A" stroke-width="0.5" fill="none"/>
+    <path d="M260 160 Q220 200 180 160 Q220 120 260 160Z" stroke="#B8975A" stroke-width="0.5" fill="none"/>
+    <path d="M160 260 Q120 220 160 180 Q200 220 160 260Z" stroke="#B8975A" stroke-width="0.5" fill="none"/>
+    <path d="M60 160 Q100 120 140 160 Q100 200 60 160Z" stroke="#B8975A" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <svg class="hero-deco-2" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="95" stroke="#C8A090" stroke-width="0.5"/>
+    <circle cx="100" cy="100" r="70" stroke="#B8975A" stroke-width="0.5"/>
+    <path d="M100 20 Q130 60 100 100 Q70 60 100 20Z" stroke="#C8A090" stroke-width="0.5" fill="none"/>
+    <path d="M180 100 Q140 130 100 100 Q140 70 180 100Z" stroke="#C8A090" stroke-width="0.5" fill="none"/>
+    <path d="M100 180 Q70 140 100 100 Q130 140 100 180Z" stroke="#C8A090" stroke-width="0.5" fill="none"/>
+    <path d="M20 100 Q60 70 100 100 Q60 130 20 100Z" stroke="#C8A090" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">SYMPHONY ACUPUNCTURE CLINIC ｜ KAWAGOE, SAITAMA</p>
+    <h1 class="hero-title">
+      頑張る女性の
+      <span>心と体を、ほどく。</span>
+    </h1>
+    <p class="hero-subtitle">完全プライベート｜女性鍼灸師｜川越市</p>
+    <div class="hero-cta">
+      <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38275?menuid=70657" class="btn-primary">初回トライアル 5,000円で予約する</a>
+      <a href="#features" class="btn-outline">当院について</a>
+    </div>
+  </div>
+  
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- こんなお悩みはありませんか -->
+<section class="pain">
+  <div class="container">
+    <div class="pain-inner">
+      <div class="pain-text reveal">
+        <p class="section-label">YOUR CONCERN</p>
+        <h2 class="section-heading">こんなお悩み<br>ありませんか？</h2>
+        <p class="section-text">仕事、家庭、子育て。毎日を一生懸命に過ごしながらも、気づけば体の声を無視し続けていませんか。疲れは溜まるばかり、でもどこに行けばいいかわからない。</p>
+      </div>
+      <div class="pain-visual reveal reveal-delay-2">
+        <div class="pain-card">肩こりや疲れが慢性化して、休んでも楽にならない</div>
+        <div class="pain-card">一日中気を張っていて、家に帰っても力が抜けない</div>
+        <div class="pain-card">眠りが浅く、朝スッキリ起きられない</div>
+        <div class="pain-card">頭痛やめまい、なんとなく体がだるい</div>
+        <div class="pain-card">更年期の症状で、日常生活がつらい</div>
+        <div class="pain-card">体を楽にしたいけど、どこに行ったら良いか分からない</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 特徴 -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">OUR FEATURES</p>
+      <h2 class="section-heading">シンフォニー鍼灸院が<br>選ばれる3つの理由</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-num">01</div>
+        <div class="feature-title">頑張る女性の気持ちが<br>わかる施術</div>
+        <div class="feature-desc">施術者自身も慢性的な肩こりに悩んできた経験があります。「重だるい」「痛くて辛い」その感覚を理解した上で、あなたのお悩みに真剣に向き合います。</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-num">02</div>
+        <div class="feature-title">完全プライベート空間で<br>女性鍼灸師が専属施術</div>
+        <div class="feature-desc">院長が全ての患者様を責任を持って施術します。毎回スタッフが変わることはありません。人目を気にせずリラックスして、安心してご相談ください。</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-num">03</div>
+        <div class="feature-title">アロマと音楽に包まれた<br>癒しの空間</div>
+        <div class="feature-desc">院内は心地よいアロマの香りと穏やかな音楽に包まれています。扉を開けた瞬間から、自然と深呼吸したくなるような空間づくりにこだわっています。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">MENU</p>
+      <h2 class="section-heading">施術メニュー</h2>
+    </div>
+    <div class="menu-grid">
+      
+      <div class="menu-card featured reveal reveal-delay-1">
+        <div class="menu-badge gold">新規限定おすすめ</div>
+        <div class="menu-time">▶ 90分</div>
+        <div class="menu-name">スペシャル トライアルメニュー<br>鍼灸60分＋初回特典マッサージ30分</div>
+        <div class="menu-price">¥5,000<span>（税込）</span></div>
+        <div class="menu-desc">「はりって痛いの？」「少し怖いな」はじめての方の不安に寄り添う特別メニュー。初めの一歩を踏み出す方を全力で応援します。<br><small style="color:var(--dusty-rose);">※初診料（カウンセリング・検査料）2,000円別途</small></div>
+        <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38275?menuid=70657" class="btn-primary" style="margin-top:20px;display:inline-block;font-size:0.85rem;padding:14px 28px;">このメニューで予約する</a>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-2">
+        <div class="menu-badge">おすすめ</div>
+        <div class="menu-time">▶ 40分</div>
+        <div class="menu-name">【部分ケア】辛いコリ・痛みに<br>緩める鍼灸</div>
+        <div class="menu-price">¥9,400<span>（税込）</span></div>
+        <div class="menu-desc">刺激の強くない鍼で、肩や首、背中の張りを優しくほどきます。施術中に眠ってしまう方も。5回回数券（90日以内）10%OFF ¥42,000でご利用いただけます。</div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-1">
+        <div class="menu-badge">おすすめ</div>
+        <div class="menu-time">▶ 60分</div>
+        <div class="menu-name">【セット】鍼灸40分＋<br>マッサージ20分</div>
+        <div class="menu-price">¥9,000<span>（税込）</span></div>
+        <div class="menu-desc">鍼灸とマッサージの相乗効果で早期改善へ。より広範囲の筋肉の硬さをほぐし血流を改善します。首・肩こり、腰痛、頭痛、眼精疲労に。</div>
+      </div>
+
+      <div class="menu-card reveal reveal-delay-2">
+        <div class="menu-time">▶ 60分</div>
+        <div class="menu-name">【全身鍼灸】オーダーメイド施術<br>根本改善コース</div>
+        <div class="menu-price">¥14,000<span>（税込）</span></div>
+        <div class="menu-desc">丁寧なカウンセリングであなたのお悩みの原因を見つけ、オーダーメイドの最適な施術と生活習慣改善のアドバイスで根本から改善へ。7回回数券10%OFF ¥88,000あり。</div>
+      </div>
+
+      <div class="menu-card reveal" style="grid-column: 1 / -1;">
+        <div class="menu-time">▶ 80分</div>
+        <div class="menu-name">【全身鍼灸】たっぷり鍼灸｜複合症状・深いお悩みにしっかり寄り添う</div>
+        <div class="menu-price">¥18,800<span>（税込）</span></div>
+        <div class="menu-desc">自律神経症状＆慢性疲労・不眠・肩こり・頭痛・腰痛・むくみなど複合症状にじっくり向き合います。なかなか治らない辛い痛みも、重さも、必ず軽くなります。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <div class="story-inner">
+      <div class="reveal">
+        <p class="section-label">FROM THE PRACTITIONER</p>
+        <h2 class="section-heading">院長より</h2>
+        <div class="story-quote">
+          「この世界で最も美しいものは何か。<br>タフな女性よ。」
+        </div>
+        <p class="section-text" style="margin-bottom:24px;">女性という同じ立場として、私自身も様々な経験をしてきました。社会や家庭を明るく和やかにしているのは、女性が大きな役割を担っているからだと感じています。</p>
+        <p class="section-text" style="margin-bottom:24px;">私は高校生の頃から油彩を専攻し、慢性的な肩こりに悩んでいました。鍼灸の先生に施術を受けた時、今まで感じたことのない体の軽さを実感し、この道を歩むことを決めました。</p>
+        <p class="section-text">みんなの為にいつも頑張っているあなたを、鍼灸の力で応援したい。あなたが本来の笑顔を取り戻せるよう、心と身体のケアを全力でサポートします。</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div style="background:var(--cream);padding:48px;text-align:center;border:1px solid var(--light-gray);">
+          <div style="width:120px;height:120px;border-radius:50%;background:var(--light-gray);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-size:3rem;">👩‍⚕️</div>
+          <div class="story-name">吉田 院長</div>
+          <div class="story-role">鍼灸師｜国家資格取得</div>
+          <div style="margin-top:24px;padding:20px;background:white;border-radius:2px;text-align:left;">
+            <p style="font-size:0.85rem;font-weight:300;color:var(--warm-gray);line-height:1.9;">体の不調を改善できれば、あなた本来の笑顔が生まれ、自分も幸せになり、より一層周囲にもハッピーを与えることができます。どうぞ、まずあなた自身を大切になさってください。</p>
+          </div>
+          <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center;">
+            <div style="padding:16px;background:white;border:1px solid var(--light-gray);">
+              <div style="font-family:'Shippori Mincho',serif;font-size:1.5rem;font-weight:700;color:var(--sage-dark);">完全</div>
+              <div style="font-size:0.75rem;color:var(--warm-gray);letter-spacing:0.1em;">プライベート個室</div>
+            </div>
+            <div style="padding:16px;background:white;border:1px solid var(--light-gray);">
+              <div style="font-family:'Shippori Mincho',serif;font-size:1.5rem;font-weight:700;color:var(--sage-dark);">女性</div>
+              <div style="font-size:0.75rem;color:var(--warm-gray);letter-spacing:0.1em;">専用・女性鍼灸師</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">PATIENT REVIEWS</p>
+      <h2 class="section-heading">お客様の声</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-text">冷えと肩こりがひどく頭が重かったのですが鍼とお灸でほぐれました。眼精疲労もあったのですが目まわりもほぐしてもらえて視界が広く明るくなりました。心地のよい音楽とともにうとうとしました。</div>
+        <div class="review-meta">しのさん｜40代女性｜2026.02</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">体の不調や内臓の不調を共に治して頂いて大変感謝しています。毎回体調を先生に見て頂き、それに合う施術をして頂いています。いつも私の心と身体のケアを大切にして下さりありがとうございます。</div>
+        <div class="review-meta">さきさん｜40代女性｜2026.02</div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">施術前に丁寧にカラダの状態を聞いてもらいとてもリラックスして受けることができました。鍼をするのは初めてでしたが思ったより怖くなく、お腹のお灸もポカポカしてとても気持ちよかったです。</div>
+        <div class="review-meta">まーきーさん｜40代女性｜2026.02</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">ACCESS & INFO</p>
+      <h2 class="section-heading">アクセス・診療情報</h2>
+    </div>
+    <div class="access-inner" style="margin-top:48px;">
+      <div class="reveal">
+        <table class="info-table">
+          <tr>
+            <td>院名</td>
+            <td>シンフォニー鍼灸院</td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td>〒350-0036<br>埼玉県川越市小仙波町3丁目13-8</td>
+          </tr>
+          <tr>
+            <td>アクセス</td>
+            <td>喜多院より徒歩3分<br>駐車場あり</td>
+          </tr>
+          <tr>
+            <td>営業時間</td>
+            <td>月〜水・金｜15:30〜17:00<br>土｜09:00〜12:00</td>
+          </tr>
+          <tr>
+            <td>定休日</td>
+            <td>木・日・祝<br>毎月第2・第4土曜日</td>
+          </tr>
+          <tr>
+            <td>対象</td>
+            <td>女性のお客様限定</td>
+          </tr>
+          <tr>
+            <td>お支払い</td>
+            <td>現金 / VISA / MASTER</td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td>鍼灸治療 / 美容鍼灸 / 指圧・マッサージ</td>
+          </tr>
+        </table>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="map-placeholder">
+          <iframe 
+            class="map-inner"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.1!2d139.4845!3d35.9265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eea1a7f8f6e7d%3A0x1!2z5Z2B5Lqs55yM5bed5omT5biC5bCP5Lim5rWm55S677yT5LiB55uu77yR77yT4oiS77yY!5e0!3m2!1sja!2sjp!4v1"
+            style="border:0;border-radius:2px;" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p style="font-size:0.82rem;color:var(--warm-gray);margin-top:12px;font-weight:300;letter-spacing:0.05em;">📍 埼玉県川越市小仙波町3丁目13-8 ｜ 喜多院より徒歩3分</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="reveal">
+    <h2>まず一歩、踏み出してみませんか？</h2>
+    <p>初めての方に、特別なスペシャルトライアルメニューをご用意しています。<br>不安なことはカウンセリングで何でもお気軽にご相談ください。</p>
+    <a href="https://www.shinq-compass.jp/salon/reserve/pv/count/38275?menuid=70657" class="btn-white">今すぐ初回トライアルを予約する</a>
+    <div>
+      <span class="price-highlight">初回限定 鍼灸60分＋マッサージ30分｜90分 ¥5,000（税込）</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>シンフォニー鍼灸院</strong><br>
+  〒350-0036 埼玉県川越市小仙波町3丁目13-8<br>
+  喜多院より徒歩3分 ｜ 駐車場あり<br><br>
+  © 2026 シンフォニー鍼灸院 All Rights Reserved.
+</footer>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
