@@ -178,7 +178,7 @@
     min-height: 100vh;
     background: var(--white);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding-top: var(--header-h);
     overflow: hidden;
   }
@@ -186,9 +186,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 60px 80px 80px;
+    padding: 60px 80px 80px;
     position: relative;
     z-index: 2;
+    order: 2;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
   }
   .hero-badge {
     display: inline-flex;
@@ -295,11 +299,11 @@
   }
   .hero-num-value span { font-size: 0.95rem; font-weight: 400; }
   .hero-num-label { font-size: 0.62rem; color: var(--text-light); letter-spacing: 0.12em; margin-top: 6px; }
-  .hero-right { position: relative; overflow: hidden; min-height: 400px; }
+  .hero-right { position: relative; overflow: hidden; min-height: 60vh; order: 1; }
   .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to right, var(--white) 0%, transparent 18%);
+    background: linear-gradient(to bottom, transparent 60%, var(--white) 100%);
     z-index: 1;
   }
 
@@ -744,8 +748,7 @@
     header { padding: 0 28px; }
     nav { gap: 18px; }
     nav a { font-size: 0.7rem; }
-    .hero { grid-template-columns: 3fr 2fr; }
-    .hero-left { padding: 60px 40px 60px 48px; }
+    .hero-left { padding: 48px 48px 72px; }
     .concern, .feature, .results, .voice, .menu, .doctor, .access, .cta-section { padding: 80px 48px; }
     .cares-grid { grid-template-columns: repeat(3,1fr); }
     .feature-main { gap: 40px; }
